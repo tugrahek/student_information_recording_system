@@ -6,23 +6,18 @@ public class Stack {
     private int index;
 
     //constructor
-    public Stack() {
-        this.stack = null;
-        this.capacity =0;
+    public Stack(int capacity) {
+        this.stack =  new Object[capacity];
+        this.capacity = capacity;
         this.index = -1;
     }
-    public Stack(Object[] stack, int capacity, int index) {
-        this.stack = stack;
-        this.capacity = capacity;
-        this.index = index;
-    }
-     //push,pop,isEmpty,isFull methods
-    public void push(int element){
+    //push,pop,isEmpty,isFull methods
+    public void push(Object element){
         if(index== capacity-1){
             System.out.println("Stack overflow");
             return;
         }else{
-            stack[index++] = element;
+            stack[++index] = element;
         }
     }
     public Object pop(){
@@ -30,13 +25,15 @@ public class Stack {
             System.out.println("Stack is empty");
             return null;
         }
-        return stack[index--];
-        
+        Object removedElement = stack[index];
+        stack[index]= null;
+        index--;
+        return removedElement;
+            
     }
     
     public boolean isEmpty(){
         if(index == -1){
-            System.out.println("Stack is empty");
             return true;
         }
         return false;
@@ -48,9 +45,6 @@ public class Stack {
         }
         return false;
     }
-            
-         
-    
 }
 
 
