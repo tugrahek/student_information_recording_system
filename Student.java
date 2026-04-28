@@ -5,20 +5,20 @@ import java.util.Objects;
 public class Student implements Comparable<Student>{
     private int studentID;
     private String fullName;
-    private ArrayList<Integer> phonerNumbers;
+    private ArrayList<String> phoneNumbers;
 
     //no argument constructor
     public Student() {
         this.studentID = 0;
         this.fullName = null;
-        this.phonerNumbers = new ArrayList<Integer>();
+        this.phoneNumbers = new ArrayList<String>();
     }
 
     //constructor that takes all parameters
-    public Student(int studentID, String fullName) {
+    public Student(int studentID, String fullName, ArrayList<String> phoneNumbers) {
         this.studentID = studentID;
         this.fullName = fullName;
-        this.phonerNumbers = phonerNumbers;
+        this.phoneNumbers = phoneNumbers;
     }
 
     
@@ -26,7 +26,7 @@ public class Student implements Comparable<Student>{
     public Student(Student other) {
         this.studentID = other.studentID;
         this.fullName = other.fullName;
-        this.phonerNumbers = other.phonerNumbers;
+        this.phoneNumbers = other.phoneNumbers;
     }
     
     //getter methods
@@ -38,8 +38,8 @@ public class Student implements Comparable<Student>{
         return fullName;
     }
 
-    public ArrayList<Integer> getPhonerNumbers() {
-        return phonerNumbers;
+    public ArrayList<String> getPhonerNumbers() {
+        return phoneNumbers;
     }
 
     //setter methods
@@ -55,14 +55,14 @@ public class Student implements Comparable<Student>{
         this.fullName = fullName;
     }
 
-    public void setPhonerNumbers(ArrayList<Integer> phonerNumbers) {
-        this.phonerNumbers = phonerNumbers;
+    public void setPhonerNumbers(ArrayList<String> phonerNumbers) {
+        this.phoneNumbers = phonerNumbers;
     }
 
     //toString method
     @Override
     public String toString() {
-        return "Student{" + "studentID=" + studentID + ", fullName=" + fullName + ", phonerNumbers=" + phonerNumbers + '}';
+        return "Student{" + "studentID=" + studentID + ", fullName=" + fullName + ", phonerNumbers=" + phoneNumbers + '}';
     }
     
     //equals method
@@ -84,7 +84,7 @@ public class Student implements Comparable<Student>{
         if (!Objects.equals(this.fullName, other.fullName)) {
             return false;
         }
-        return Objects.equals(this.phonerNumbers, other.phonerNumbers);
+        return Objects.equals(this.phoneNumbers, other.phoneNumbers);
     }
     
     //compareTo method
