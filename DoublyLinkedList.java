@@ -11,6 +11,14 @@ public class DoublyLinkedList {
         tail = null;
         size = 0;
     }
+    
+    public Node getHead() {
+    return head;
+}
+
+    public Node getTail() {
+        return tail;
+    }   
 
     public int size() {
         return size;
@@ -126,29 +134,57 @@ public class DoublyLinkedList {
     }
 
     // traversal
-    public void printForward() {
-        Node current = head;
-        System.out.print("HEAD ↔ ");
-        while (current != null) {
-            System.out.print(current.student);
-            if (current.next != null) {
-                System.out.print(" ↔ ");
-            }
-            current = current.next;
-        }
-        System.out.println(" ↔ TAIL");
+   public void printForward() {
+    if (head == null) {
+        System.out.println("The list is empty.");
+        return;
     }
 
-    public void printBackward() {
-        Node current = tail;
-        System.out.print("TAIL ↔ ");
-        while (current != null) {
-            System.out.print(current.student);
-            if (current.prev != null) {
-                System.out.print(" ↔ ");
-            }
-            current = current.prev;
-        }
-        System.out.println(" ↔ HEAD");
+    System.out.println("\n===== Students in Ascending Order =====");
+    System.out.printf("%-12s %-25s %-40s%n", "Student ID", "Full Name", "Phone Numbers");
+    System.out.println("----------------------------------------------------------------------------");
+
+    Node current = head;
+
+    while (current != null) {
+        Student s = current.student;
+
+        System.out.printf("%-12d %-25s %-40s%n",
+                s.getStudentID(),
+                s.getFullName(),
+                s.getPhoneNumbers());
+
+        current = current.next;
     }
+}
+
+public void printBackward() {
+    if (tail == null) {
+        System.out.println("The list is empty.");
+        return;
+    }
+
+    System.out.println("\n===== Students in Descending Order =====");
+    System.out.printf("%-12s %-25s %-40s%n", "Student ID", "Full Name", "Phone Numbers");
+    System.out.println("----------------------------------------------------------------------------");
+
+    Node current = tail;
+
+    while (current != null) {
+        Student s = current.student;
+
+        System.out.printf("%-12d %-25s %-40s%n",
+                s.getStudentID(),
+                s.getFullName(),
+                s.getPhoneNumbers());
+
+        current = current.prev;
+    }
+}
+
+public void clear() {
+    head = null;
+    tail = null;
+    size = 0;
+}
 }

@@ -26,7 +26,7 @@ public class Student implements Comparable<Student>{
     public Student(Student other) {
         this.studentID = other.studentID;
         this.fullName = other.fullName;
-        this.phoneNumbers = other.phoneNumbers;
+        this.phoneNumbers = new ArrayList<>(other.phoneNumbers);
     }
     
     //getter methods
@@ -38,7 +38,7 @@ public class Student implements Comparable<Student>{
         return fullName;
     }
 
-    public ArrayList<String> getPhonerNumbers() {
+    public ArrayList<String> getPhoneNumbers() {
         return phoneNumbers;
     }
 
@@ -55,7 +55,7 @@ public class Student implements Comparable<Student>{
         this.fullName = fullName;
     }
 
-    public void setPhonerNumbers(ArrayList<String> phonerNumbers) {
+    public void setPhoneNumbers(ArrayList<String> phonerNumbers) {
         this.phoneNumbers = phonerNumbers;
     }
 

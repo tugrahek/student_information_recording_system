@@ -38,13 +38,7 @@ public class Stack {
         }
         return false;
     }
-    
-    public boolean isFull(){
-        if (index == capacity-1){
-            return true;
-        }
-        return false;
-    }
+ 
 }
 
 
